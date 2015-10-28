@@ -1,14 +1,19 @@
 #include <stdio.h>
+#include <list>
 #include "media.h"
 #include "video.h"
 #include "photo.h"
 
 int main(){
+    list<Media*> mediaList;
 
-    Video* v = new Video("hi", "lala", 10);
-    v->print(cout);
-    Photo* photo = new Photo("orange.jpg", "/cal/homes/hao-zhang/CycleMaster/INF224", 500, 600);
-    photo->print(cout);
-    photo->play();
+    mediaList.push_back(new Video("v1", "lala", 10));
+    mediaList.push_back(new Video("v2", "lala", 10));
+    mediaList.push_back(new Video("v3", "lala", 10));
+    mediaList.push_back(new Photo("p1", "gaga", 5.5, 5.5));
+    mediaList.push_back(new Photo("p2", "gaga", 5.5, 5.5));
+
+    for(auto it : mediaList) it->print(cout);
+    //v->print(cout);
     return 1;
 }

@@ -23,7 +23,7 @@ void Video::print(ostream &s) const{
 }
 
 void Video::play() const{
-    string runFile = "mpv"+this->getName()+"&";
+    string runFile = "mpv "+getPath()+getName()+" &";
     system(runFile.c_str());
 }
 

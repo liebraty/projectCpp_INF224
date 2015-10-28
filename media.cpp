@@ -30,6 +30,7 @@ void Media::setPath(string _path){
     path = _path;
 }
 
+// Print attribues values
 void Media::print(ostream & s) const{
     s << endl << "name : " << getName() << endl << "path : " << getPath() << endl<< endl;
 }

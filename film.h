@@ -10,18 +10,25 @@ using namespace std;
 class Film : public Video
 {
 private:
-    // Suppose to have 1 timeTab for each instance of the Object, but not a shared timeTab
+    // Suppose to have 1 chapiterTab for each instance of the Object, but not a shared chapiterTab
     // Use "copie profonde"
-    int* timeTab;
+    int* chapiterTab;
+    int nChapiter;
 
 public:
-    // Constructor initializing all attribues
-    Film(string _name, string _path, int _time, int* _timeTab);
-    // Constructor without initialize timeTab (timeTab=Null)
+    // Construct with all attribues
+    Film(string _name, string _path, int _time, int* _chapiterTab);
+    // Construct without chapiterTab
     Film(string _name, string _path, int _time);
-    virtual void midifier(int* newTimeTab, int length);
-    virtual int* accessor() const;
-    virtual void printTimeTab() const;
+    // Construct safely when using another Film object
+    Film(const Film&);
+    // Security control in case of copie (copie profonde)
+    Film& Film::operator=(const Film&);
+    virtual ~Film();
+    virtual void set_chapiterTab(int* newchapiterTab, int _nChapiter);
+    virtual int* get_chapiterTab() const;
+    virtual int get_nChapiter() const;
+    virtual void print_chapiterTab(ostream & s) const;
 };
 
 #endif // FILM_H

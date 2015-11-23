@@ -1,13 +1,22 @@
 #include <stdio.h>
 #include <list>
+#include <memory>
+#include <sstream>
+#include <iostream>
+#include <string>
+
 #include "media.h"
 #include "video.h"
 #include "photo.h"
 #include "film.h"
+#include "group.h"
 
 int main(){
     list<Media*> mediaList;
+    Group* g1 = new Group("g1");
 
+
+    // Test for step 5
     mediaList.push_back(new Video("v1", "lala", 10));
     mediaList.push_back(new Video("v2", "lala", 10));
     mediaList.push_back(new Video("v3", "lala", 10));
@@ -18,6 +27,8 @@ int main(){
     for(auto it : mediaList) it->print(cout);
     //v->print(cout);
 
+
+    // Test for step 6-7
     int a = 3;
     int b[] = {1,2,3};
     Film* f2 = new Film("f2", "hi", 10, a, b);
@@ -39,8 +50,15 @@ int main(){
     f3->print_chapiterTab(cout);
     f3->~Film();
 
-    f2->print(cout);
-    f2->print_chapiterTab(cout);
+    // Test step 8-9
+    shared_ptr<Media> v1(new Video("v1", "lala", 10));
+    g1->push_back(v1);
+    shared_ptr<Media> p1(new Photo("p1", "baba", 20, 20));
+    g1->push_back(p1);
+    shared_ptr<Media> f1(new Film("f1", "haha", 30));
+    g1->push_back(f1);
+
+    g1->print(cout);
 
     return 1;
 }

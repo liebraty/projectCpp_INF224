@@ -44,9 +44,9 @@ Film& Film::operator=(const Film& from){
 
 // Destructor
 Film::~Film(){
-    delete []chapiterTab;
+    //delete []chapiterTab;
     chapiterTab=nullptr;
-    cout<<"Object destructed"<<getName()<<endl;
+    cout << "Film " <<getName() << " has been destroyed"<<endl;
 }
 
 // Set chapiterTab and nChapiter

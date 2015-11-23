@@ -5,6 +5,7 @@
 #include <iostream>
 #include "video.h"
 
+
 using namespace std;
 
 class Film : public Video
@@ -17,15 +18,15 @@ private:
 
 public:
     // Construct with all attribues
-    Film(string _name, string _path, int _time, int* _chapiterTab);
+    Film(string _name, string _path, int _time, int _nChapiter, int* _chapiterTab);
     // Construct without chapiterTab
     Film(string _name, string _path, int _time);
     // Construct safely when using another Film object
     Film(const Film&);
     // Security control in case of copie (copie profonde)
-    Film& Film::operator=(const Film&);
+    Film& operator=(const Film&);
     virtual ~Film();
-    virtual void set_chapiterTab(int* newchapiterTab, int _nChapiter);
+    virtual void set_chapiterTab(int _nChapiter, int* newchapiterTab);
     virtual int* get_chapiterTab() const;
     virtual int get_nChapiter() const;
     virtual void print_chapiterTab(ostream & s) const;

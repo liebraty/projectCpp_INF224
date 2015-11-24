@@ -10,11 +10,11 @@ using namespace std;
 class Video : public Media
 {
 private:
-    int time;
+    unsigned int time;
 public:
-    Video(string _name, string _path, int _time);
+    Video(string _name, string _path, unsigned int _time);
     virtual int getTime() const;
-    virtual void setTime(int _time);
+    virtual void setTime(unsigned int _time);
     virtual void print(ostream &s) const override;
     virtual void play() const override;
 };

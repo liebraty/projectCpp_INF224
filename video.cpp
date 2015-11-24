@@ -7,7 +7,7 @@
 using namespace std;
 
 // Constructor
-Video::Video(string _name, string _path, int _time):
+Video::Video(string _name, string _path, unsigned int _time):
     Media(_name, _path), time(_time)
     {}
 
@@ -16,7 +16,7 @@ int Video::getTime() const{
     return time;
 }
 
-void Video::setTime(int _time){
+void Video::setTime(unsigned int _time){
     time = _time;
 }
 
